@@ -1,0 +1,16 @@
+section {
+  display: flex;
+  
+  div {
+    &#box {
+      width: 200px;
+      height: 200px;
+      background-color: rgb(57, 104, 104);
+    }
+    &#hand {
+      width: 40px;
+      height: 40px;
+      background-color: palevioletred;
+    }
+  }
+}  

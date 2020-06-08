@@ -1,0 +1,18 @@
+section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+section div#box {
+  width: 200px;
+  height: 200px;
+  background-color: #396868;
+}
+
+section div#hand {
+  width: 40px;
+  height: 40px;
+  background-color: palevioletred;
+}
+/*# sourceMappingURL=styles.css.map */
