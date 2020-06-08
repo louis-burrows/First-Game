@@ -1,6 +1,9 @@
 section {
-  display: flex;
   
+  &.game {
+    display: flex;
+  }
+
   div {
     &#box {
       width: 200px;

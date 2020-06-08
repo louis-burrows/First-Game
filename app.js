@@ -6,5 +6,13 @@
 //tile 6 has 100% risk
 
 //grab the hand element
-document.querySelector("#hand")
+const moveLeft = () => {
+ console.log("left");
+ document.getElementById("hand").style.backgroundColor = "red";
+};
+
+const moveRight = () => {
+ console.log("right")
+ document.getElementById("hand").style.backgroundColor = "green";
+};
 //make the hand element move
