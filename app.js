@@ -7,19 +7,53 @@
 
 //grab the hand element
 //make the hand element move
+
+const leftButton = document.getElementById("leftButton");
+
+
+//This is an attempt at a cascade of changing onclick Events, but doesn't work
+
 const moveLeft = () => {
- console.log("left");
- document.getElementById("hand").style.backgroundColor = "red";
- document.getElementById('hand').setAttribute( "onClick", "secondMoveLeft" );
+ console.log("one left");
+ leftButton.style.backgroundColor = "red";
+ leftButton.addEventListener( "click", secondMoveLeft );
+ leftButton.removeEventListener( "click", moveLeft );
 };
 
-const secondMoveLeft = () =>
+const secondMoveLeft = () => {
+  console.log("two left");
+  leftButton.style.backgroundColor = "blue";
+  leftButton.addEventListener( "click", thirdMoveLeft );
+ };
+
+const thirdMoveLeft = () => {
+  console.log("three left");
+  leftButton.style.backgroundColor = "yellow";
+  leftButton.addEventListener( "click", fourthMoveLeft );
+};
+
+const fourthMoveLeft = () => {
+  console.log("four left");
+  leftButton.style.backgroundColor = "orange";
+  leftButton.addEventListener( "click", fifthMoveLeft );
+};
+
+const fifthMoveLeft = () => {
+  console.log("five left");
+  leftButton.style.backgroundColor = "yellow";
+  leftButton.addEventListener( "click", sixthMoveLeft );
+};
+
+const sixthMoveLeft = () => {
+  console.log("you lose");
+};
 
 const moveRight = () => {
- console.log("right")
+ console.log("right");
  document.getElementById("hand").style.backgroundColor = "green";
 };
 
+leftButton.addEventListener("click", moveLeft);
 
 
 //probability of a function happening at different stages
@@ -28,7 +62,7 @@ const twentyPercent = 0.2;
 const fortyPercent = 0.4;
 const sixtyPercent = 0.6;
 const eightyPercent = 0.8;
-let randomPercentage = Math.rand();
+let randomPercentage = Math.random();
 
 const movedOne = () => {
   if (randomPercentage > twentyPercent) {
@@ -71,9 +105,9 @@ const movedFive = () => {
 };
 
 
-// how to decipher the position of an element on the page, to trigger each of the above functions
-//OR
-//how to trigger a different function for each successive press of the same button
+// // how to decipher the position of an element on the page, to trigger each of the above functions
+// //OR
+// //how to trigger a different function for each successive press of the same button
 
-//***each call of the function rewrites the function associated with the hand
-document.getElementById('hand').setAttribute( "onClick", "secondMoveLeft" );
+// //***each call of the function rewrites the function associated with the hand
+// document.getElementById('hand').setAttribute( "onClick", "secondMoveLeft" );
