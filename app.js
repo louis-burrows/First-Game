@@ -1,113 +1,96 @@
-//tile 1 has 0% risk
-//tile 2 has 20% risk
-//tile 3 has 40% risk
-//tile 4 has 60% risk
-//tile 5 has 80% risk
-//tile 6 has 100% risk
+// the global variables
 
-//grab the hand element
-//make the hand element move
-
-const leftButton = document.getElementById("leftButton");
+const moveHandCloser = document.getElementById("moveCloser");
+const moveAway = document.getElementById("moveAway");
+const hand = document.getElementById("hand");
+const chanceOfFail = 0.3;
 
 
-//This is an attempt at a cascade of changing onclick Events, but doesn't work
 
-const moveLeft = () => {
- console.log("one left");
- leftButton.style.backgroundColor = "red";
- leftButton.addEventListener( "click", secondMoveLeft );
- leftButton.removeEventListener( "click", moveLeft );
+//This is a cascade of click events. After each click, if you have not been caught, then you can proceed to the next click. Until the risk becomes to great, and failure is guaranteed.
+
+const moveCloser = () => {
+ console.log("one Closer");
+ console.log("you can have this one for free")
+ hand.innerHTML = "hand";
+ hand.style.backgroundColor = "red";
+ moveHandCloser.addEventListener( "click", secondMoveCloser );
+ moveHandCloser.removeEventListener( "click", moveCloser );
 };
 
-const secondMoveLeft = () => {
-  console.log("two left");
-  leftButton.style.backgroundColor = "blue";
-  leftButton.addEventListener( "click", thirdMoveLeft );
+const secondMoveCloser = () => {
+  console.log("two Closer");
+  if (Math.random() > chanceOfFail) {
+    hand.style.backgroundColor = "blue";
+    moveHandCloser.addEventListener( "click", thirdMoveCloser );
+    moveHandCloser.removeEventListener( "click", secondMoveCloser );
+    console.log("lucky you") 
+  } else {
+  sixthMoveCloser();
+  moveHandCloser.removeEventListener( "click", secondMoveCloser );
+  }
  };
 
-const thirdMoveLeft = () => {
-  console.log("three left");
-  leftButton.style.backgroundColor = "yellow";
-  leftButton.addEventListener( "click", fourthMoveLeft );
+const thirdMoveCloser = () => {
+  console.log("three Closer");
+  if (Math.random() > chanceOfFail) { 
+    hand.style.backgroundColor = "yellow";
+    moveHandCloser.addEventListener( "click", fourthMoveCloser );
+    moveHandCloser.removeEventListener( "click", thirdMoveCloser );
+    console.log("lucky you") 
+  } else {
+    sixthMoveCloser();
+    moveHandCloser.removeEventListener( "click", thirdMoveCloser );
+  }
 };
 
-const fourthMoveLeft = () => {
-  console.log("four left");
-  leftButton.style.backgroundColor = "orange";
-  leftButton.addEventListener( "click", fifthMoveLeft );
+const fourthMoveCloser = () => {
+  console.log("four Closer");
+  if (Math.random() > chanceOfFail) {
+    hand.style.backgroundColor = "orange";
+    moveHandCloser.addEventListener( "click", fifthMoveCloser );
+    moveHandCloser.removeEventListener( "click", fourthMoveCloser );
+    console.log("lucky you")
+  } else {
+    sixthMoveCloser();
+    moveHandCloser.removeEventListener( "click", fourthMoveCloser );
+  }
 };
 
-const fifthMoveLeft = () => {
-  console.log("five left");
-  leftButton.style.backgroundColor = "yellow";
-  leftButton.addEventListener( "click", sixthMoveLeft );
+const fifthMoveCloser = () => {
+  console.log("five Closer");
+  if (Math.random() > chanceOfFail) {
+    hand.style.backgroundColor = "green";
+    moveHandCloser.addEventListener( "click", sixthMoveCloser );
+    moveHandCloser.removeEventListener( "click", fifthMoveCloser );
+    console.log("lucky you")
+  } else {
+    sixthMoveCloser();
+    moveHandCloser.removeEventListener( "click", fifthMoveCloser );
+  } 
 };
 
-const sixthMoveLeft = () => {
+const sixthMoveCloser = () => {
   console.log("you lose");
+  document.getElementById("hand").style.backgroundColor = "palegoldenrod";
+  document.getElementById("hand").innerText = "starting place";
+  moveHandCloser.addEventListener("click", moveCloser);
+  moveHandCloser.removeEventListener( "click", sixthMoveCloser );
 };
 
-const moveRight = () => {
- console.log("right");
- document.getElementById("hand").style.backgroundColor = "green";
+const pullAway = () => {
+ console.log("return to start");
+ document.getElementById("hand").style.backgroundColor = "palegoldenrod";
+ document.getElementById("hand").innerText = "starting place";
+ moveHandCloser.removeEventListener( "click", moveCloser );
+ moveHandCloser.removeEventListener( "click", secondMoveCloser );
+ moveHandCloser.removeEventListener( "click", thirdMoveCloser );
+ moveHandCloser.removeEventListener( "click", fourthMoveCloser );
+ moveHandCloser.removeEventListener( "click", fifthMoveCloser );
+ moveHandCloser.addEventListener("click", moveCloser);
 };
 
-leftButton.addEventListener("click", moveLeft);
+moveHandCloser.addEventListener("click", moveCloser);
+moveAway.addEventListener("click", pullAway);
 
 
-//probability of a function happening at different stages
-
-const twentyPercent = 0.2; 
-const fortyPercent = 0.4;
-const sixtyPercent = 0.6;
-const eightyPercent = 0.8;
-let randomPercentage = Math.random();
-
-const movedOne = () => {
-  if (randomPercentage > twentyPercent) {
-  alert("you are still safe");
-  } else {
-  alert("you have been caught");
-  };
-};
-
-const movedTwo = () => {
-  if (randomPercentage > twentyPercent) {
-  alert("you are less safe")
-  } else {
-  alert("you have been caught");
-  };
-};
-
-const movedThree = () => {
-  if (randomPercentage > fortyPercent) {
-  alert("you are even less safe")
-  } else {
-  alert("you have been caught");
-  };
-};
-
-const movedFour = () => {
-  if (randomPercentage > sixtyPercent) {
-  alert("you are risking much")
-  } else {
-  alert("you have been caught");
-  };
-};
-
-const movedFive = () => {
-  if (randomPercentage > eightyPercent) {
-  alert("it is not wise to go further")
-  } else {
-  alert("you have been caught");
-  };
-};
-
-
-// // how to decipher the position of an element on the page, to trigger each of the above functions
-// //OR
-// //how to trigger a different function for each successive press of the same button
-
-// //***each call of the function rewrites the function associated with the hand
-// document.getElementById('hand').setAttribute( "onClick", "secondMoveLeft" );

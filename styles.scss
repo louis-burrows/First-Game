@@ -1,19 +1,40 @@
-section {
-  
-  &.game {
-    display: flex;
+* {
+  border: none;
+  margin: none;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+
+  header {
+    background-color: peachpuff;
+    width: 100vw;
+    display: block;
   }
 
-  div {
-    &#box {
-      width: 200px;
-      height: 200px;
-      background-color: rgb(57, 104, 104);
+  section {
+    
+    &.game {
+      display: block;
     }
-    &#hand {
-      width: 40px;
-      height: 40px;
-      background-color: palevioletred;
+
+    div {
+      &#box {
+        width: 200px;
+        height: 200px;
+        background-color: rgb(57, 104, 104);
+      }
+
+      &#hand {
+        width: 40px;
+        height: 40px;
+        background-color: palegoldenrod;
+      }
     }
-  }
-}  
+  }  
+
+}
+
+
+

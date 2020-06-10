@@ -1,18 +1,33 @@
-section.game {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+* {
+  border: none;
+  margin: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-section div#box {
+body {
+  width: 100vw;
+}
+
+body header {
+  background-color: peachpuff;
+  width: 100vw;
+  display: block;
+}
+
+body section.game {
+  display: block;
+}
+
+body section div#box {
   width: 200px;
   height: 200px;
   background-color: #396868;
 }
 
-section div#hand {
+body section div#hand {
   width: 40px;
   height: 40px;
-  background-color: palevioletred;
+  background-color: palegoldenrod;
 }
 /*# sourceMappingURL=styles.css.map */
