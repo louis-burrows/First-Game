@@ -1,11 +1,13 @@
 * {
-  border: none;
-  margin: none;
+  border: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
 body {
   width: 100vw;
+  position: relative;
+
 
   header {
     background-color: peachpuff;
@@ -14,22 +16,50 @@ body {
   }
 
   section {
+
     
     &.game {
-      display: block;
+      margin-top: 40px;;
+
+    }
+
+    &.buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    &.boxandhand {
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      position: relative;
     }
 
     div {
-      &#box {
-        width: 200px;
-        height: 200px;
-        background-color: rgb(57, 104, 104);
+      &#head {
+        width: 350px;
+        height: 350px;
+        position: absolute;
+        top: 30px;
+        left: 5px;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
       }
 
       &#hand {
-        width: 40px;
-        height: 40px;
-        background-color: palegoldenrod;
+        width: 50vw;
+        height: auto;
+        position: absolute;
+        top: 400px;
+        left: 210px;
+
+        img {
+          width: 100%;
+        }
       }
     }
   }  

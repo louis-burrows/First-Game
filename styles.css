@@ -1,12 +1,13 @@
 * {
-  border: none;
-  margin: none;
+  border: 0;
+  margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
 body {
   width: 100vw;
+  position: relative;
 }
 
 body header {
@@ -16,18 +17,56 @@ body header {
 }
 
 body section.game {
-  display: block;
+  margin-top: 40px;
 }
 
-body section div#box {
-  width: 200px;
-  height: 200px;
-  background-color: #396868;
+body section.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+body section.boxandhand {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  position: relative;
+}
+
+body section div#head {
+  width: 350px;
+  height: 350px;
+  position: absolute;
+  top: 30px;
+  left: 5px;
+}
+
+body section div#head img {
+  width: 100%;
+  height: auto;
 }
 
 body section div#hand {
-  width: 40px;
-  height: 40px;
-  background-color: palegoldenrod;
+  width: 50vw;
+  height: auto;
+  position: absolute;
+  top: 400px;
+  left: 210px;
+}
+
+body section div#hand img {
+  width: 100%;
 }
 /*# sourceMappingURL=styles.css.map */
