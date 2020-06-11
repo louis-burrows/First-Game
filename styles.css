@@ -21,14 +21,22 @@ body section.game {
 }
 
 body section.buttons {
+  padding-top: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
+
+body section.buttons button {
+  margin-left: 30px;
+  font-size: 18px;
+  font-weight: 900;
 }
 
 body section.boxandhand {
@@ -46,6 +54,7 @@ body section.boxandhand {
 }
 
 body section div#head {
+  max-width: 350px;
   width: 350px;
   height: 350px;
   position: absolute;
@@ -59,7 +68,7 @@ body section div#head img {
 }
 
 body section div#hand {
-  width: 50vw;
+  width: 180px;
   height: auto;
   position: absolute;
   top: 400px;
