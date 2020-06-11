@@ -60,19 +60,20 @@ body {
       }
 
       &#hand {
-        width: 180px;
-        height: auto;
+        width: 220px;
+        max-width: 220px;
+        height: 300px;
         position: absolute;
         top: 400px;
         left: 210px;
 
         img {
           width: 100%;
+          height: auto;
         }
       }
     }
   }  
-
 }
 
 
