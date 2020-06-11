@@ -50,6 +50,7 @@ const fourthMoveCloser = () => {
   console.log("four Closer");
   if (Math.random() > chanceOfFail) {
     hand.style.top = "260px";
+    headPicture.src = "./images/head-happy.png";
     moveHandCloser.addEventListener( "click", fifthMoveCloser );
     moveHandCloser.removeEventListener( "click", fourthMoveCloser );
     console.log("lucky you")
