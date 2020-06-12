@@ -20,6 +20,17 @@ body section.game {
   margin-top: 40px;
 }
 
+body section.game p {
+  max-width: 120px;
+  font-size: 14px;
+  display: block;
+  position: absolute;
+  top: 430px;
+  left: 20px;
+  padding: 5px;
+  border: 2px solid #75759c;
+}
+
 body section.buttons {
   padding-top: 10px;
   display: -webkit-box;
